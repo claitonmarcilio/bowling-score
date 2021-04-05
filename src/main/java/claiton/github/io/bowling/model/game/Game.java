@@ -1,6 +1,6 @@
 package claiton.github.io.bowling.model.game;
 
-import claiton.github.io.bowling.infra.ResultFormatter;
+import claiton.github.io.bowling.formatter.ResultFormatter;
 import claiton.github.io.bowling.model.game.coordinator.FreePlayersCoordinator;
 import claiton.github.io.bowling.model.game.coordinator.OrderedPlayersCoordinator;
 import claiton.github.io.bowling.model.game.coordinator.PlayersCoordinator;

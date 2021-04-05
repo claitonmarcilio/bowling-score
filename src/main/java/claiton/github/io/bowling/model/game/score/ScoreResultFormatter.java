@@ -1,6 +1,6 @@
 package claiton.github.io.bowling.model.game.score;
 
-import claiton.github.io.bowling.infra.ResultFormatter;
+import claiton.github.io.bowling.formatter.ResultFormatter;
 import claiton.github.io.bowling.model.game.score.frame.Frame;
 
 public class ScoreResultFormatter implements ResultFormatter<Score> {

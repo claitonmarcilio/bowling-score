@@ -1,7 +1,7 @@
 package claiton.github.io.bowling;
 
 
-import claiton.github.io.bowling.infra.ValidationException;
+import claiton.github.io.bowling.exception.ValidationException;
 import claiton.github.io.bowling.model.game.Game;
 import claiton.github.io.bowling.model.player.Player;
 import claiton.github.io.bowling.model.roll.Roll;
@@ -27,14 +27,16 @@ public class BowlingScoreApplication {
 
         final Game game = Game.newStandardGame();
 
-        getLinesStream(filePath).forEach(line -> {
-            String[] lineValues = line.split("\t");
-            if (lineValues.length != 2) {
-                throw new ValidationException(String.format("Invalid line: \"%s\".", line));
-            }
-            final String playerName = lineValues[0];
-            game.newRoll(new Player(playerName), getRoll(lineValues[1]));
-        });
+        try (Stream<String> linesStream = getLinesStream(filePath)) {
+            linesStream.forEach(line -> {
+                String[] lineValues = line.split("\t");
+                if (lineValues.length != 2) {
+                    throw new ValidationException(String.format("Invalid line: \"%s\".", line));
+                }
+                final String playerName = lineValues[0];
+                game.newRoll(new Player(playerName), getRoll(lineValues[1]));
+            });
+        }
 
         return game;
     }

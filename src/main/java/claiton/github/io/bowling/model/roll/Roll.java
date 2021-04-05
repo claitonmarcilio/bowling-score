@@ -1,6 +1,6 @@
 package claiton.github.io.bowling.model.roll;
 
-import claiton.github.io.bowling.infra.ValidationException;
+import claiton.github.io.bowling.exception.ValidationException;
 import lombok.Builder;
 import lombok.Getter;
 

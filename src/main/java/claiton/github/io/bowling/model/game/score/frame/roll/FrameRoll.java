@@ -9,12 +9,12 @@ public class FrameRoll {
     private final Roll roll;
     private final FrameRollResult result;
 
-    public int getScore() {
-        return roll.getScore();
-    }
-
     @Override
     public String toString() {
         return result.getResultFormat(roll.getScore());
+    }
+
+    public int getExtraScoreRolls() {
+        return result.getExtraScoreRolls();
     }
 }

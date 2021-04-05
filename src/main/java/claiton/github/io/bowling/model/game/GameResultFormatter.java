@@ -1,6 +1,6 @@
 package claiton.github.io.bowling.model.game;
 
-import claiton.github.io.bowling.infra.ResultFormatter;
+import claiton.github.io.bowling.formatter.ResultFormatter;
 
 public class GameResultFormatter implements ResultFormatter<Game> {
 

@@ -1,11 +1,10 @@
 package claiton.github.io.bowling.model.game.score;
 
-import claiton.github.io.bowling.infra.ResultFormatter;
-import claiton.github.io.bowling.infra.ValidationException;
+import claiton.github.io.bowling.formatter.ResultFormatter;
+import claiton.github.io.bowling.exception.ValidationException;
+import claiton.github.io.bowling.model.game.score.frame.DefaultFrame;
 import claiton.github.io.bowling.model.game.score.frame.Frame;
-import claiton.github.io.bowling.model.game.score.frame.roll.result.evaluator.DefaultFrameRollResultEvaluator;
-import claiton.github.io.bowling.model.game.score.frame.roll.result.evaluator.FrameRollResultEvaluator;
-import claiton.github.io.bowling.model.game.score.frame.roll.result.evaluator.LastFrameRollResultEvaluator;
+import claiton.github.io.bowling.model.game.score.frame.LastFrame;
 import claiton.github.io.bowling.model.roll.Roll;
 import claiton.github.io.bowling.model.roll.RollResult;
 import lombok.NonNull;
@@ -47,20 +46,15 @@ public class Score {
             if (frames.size() == numberOfFrames) {
                 throw new ValidationException("This game is over.");
             }
-
-            currentFrame = Frame.builder()
-                    .rollResultEvaluator(getFrameRollResultEvaluator())
-                    .withAdditionalRoll(isLastFrame())
-                    .build();
-
+            currentFrame = newFrame();
             frames.add(currentFrame);
         }
     }
 
-    private FrameRollResultEvaluator getFrameRollResultEvaluator() {
+    private Frame newFrame() {
         return isLastFrame() ?
-                new LastFrameRollResultEvaluator() :
-                new DefaultFrameRollResultEvaluator();
+                new LastFrame() :
+                new DefaultFrame();
     }
 
     private boolean isLastFrame() {

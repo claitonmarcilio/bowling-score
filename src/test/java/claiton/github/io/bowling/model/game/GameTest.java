@@ -1,6 +1,6 @@
 package claiton.github.io.bowling.model.game;
 
-import claiton.github.io.bowling.infra.ValidationException;
+import claiton.github.io.bowling.exception.ValidationException;
 import claiton.github.io.bowling.model.player.Player;
 import claiton.github.io.bowling.model.roll.Roll;
 import org.junit.jupiter.api.Assertions;
