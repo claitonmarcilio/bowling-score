@@ -15,6 +15,14 @@ public class FileGameLoaderTest {
     }
 
     @Test
+    void shouldFailWhenInvalidPath() {
+        final GameLoader gameLoader = new FileGameLoader();
+
+        Assertions.assertThrows(ValidationException.class, () ->
+                gameLoader.loadGame("invalid-path"));
+    }
+
+    @Test
     void shouldFailWhenInvalidLine() {
         final GameLoader gameLoader = new FileGameLoader();
 

@@ -65,12 +65,11 @@ class GameTest {
         game.newRoll(playerOne, getRoll(10));
         game.newRoll(playerOne, getRoll(0));
 
-        game.newRoll(playerTwo, getRoll(10));
-        game.newRoll(playerTwo, getRoll(10));
-        game.newRoll(playerTwo, getRoll(10));
+        game.newRoll(playerTwo, getRoll(8));
+        game.newRoll(playerTwo, getRoll(0));
 
         Assertions.assertEquals(30, game.getPlayerTotalScore(playerOne));
-        Assertions.assertEquals(30, game.getPlayerTotalScore(playerTwo));
+        Assertions.assertEquals(8, game.getPlayerTotalScore(playerTwo));
         Assertions.assertDoesNotThrow(game::toString);
     }
 
