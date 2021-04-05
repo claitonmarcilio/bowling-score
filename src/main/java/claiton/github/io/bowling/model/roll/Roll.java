@@ -32,9 +32,4 @@ public class Roll {
         this.score = score;
         this.foul = foul;
     }
-
-    @Override
-    public String toString() {
-        return foul ? "F" : String.valueOf(score);
-    }
 }
