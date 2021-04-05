@@ -39,8 +39,8 @@ The application prints out a similar score to standard out, in the format:
 ```
 Frame		1		2		3		4		5		6		7		8		9		10
 John
-Pinfalls		X	F	/		X		X		X		X		X		X		X	X	X	X
-Score		20		40		70		100		130		160		190		220		250		280		
+Pinfalls	5	2	F	/		X		X		X		X		X		X		X	X	X	X
+Score		7		27		57		87		117		147		177		207		237		267		
 ```
 
 ## Installation
