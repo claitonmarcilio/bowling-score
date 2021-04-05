@@ -100,5 +100,5 @@ final Game game = BowlingGame.newGameWithOptions(GameOptions.builder()
 
 ## Links
 
-- [Wikipedia Ten-Pin Bowling](https://en.wikipedia.org/wiki/Ten-pin_bowling)
+- [Wikipedia - Ten-Pin Bowling](https://en.wikipedia.org/wiki/Ten-pin_bowling)
 - [YouTube - How to Keep Score in Bowling](https://www.youtube.com/watch?v=aBe71sD8o8c)
