@@ -1,5 +1,7 @@
 package claiton.github.io.bowling;
 
+import claiton.github.io.bowling.input.FileGameLoader;
+import claiton.github.io.bowling.input.GameLoader;
 import claiton.github.io.bowling.model.game.Game;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,9 +17,10 @@ public class BowlingScoreApplicationIT {
 
     @Test
     void loadFilesIntegrationTest() throws IOException {
+        final GameLoader gameLoader = new FileGameLoader();
         final File resourcesFolder = new File("src/integration-test/resources/input");
         for (final File file : Objects.requireNonNull(resourcesFolder.listFiles())) {
-            final Game game = BowlingScoreApplication.loadGameFromFile(file.getAbsolutePath());
+            final Game game = gameLoader.loadGame(file.getAbsolutePath());
             final String expectedOutput = readFile("src/integration-test/resources/output/" + file.getName());
 
             Assertions.assertEquals(expectedOutput, game.toString());
