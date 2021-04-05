@@ -1,5 +1,7 @@
 # Bowling Score
 
+[![codecov](https://codecov.io/gh/claitonmarcilio/bowling-score/branch/master/graph/badge.svg?token=ZCJQUTGMQ5)](https://codecov.io/gh/claitonmarcilio/bowling-score)
+
 Bowling Score is a Java project for a command-line application to score a multiplayer game of ten-pin bowling.
 
 ## Table of contents
