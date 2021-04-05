@@ -50,7 +50,7 @@ public class BowlingScoreApplication {
     }
 
     private static Stream<String> getLinesStream(String filePath) {
-        Stream<String> lines;
+        final Stream<String> lines;
         try {
             lines = Files.lines(Paths.get(filePath));
         } catch (IOException e) {
