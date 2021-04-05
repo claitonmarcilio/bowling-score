@@ -9,25 +9,6 @@ import org.junit.jupiter.api.Test;
 class GameTest {
 
     @Test
-    void twoPlayersGameTest() {
-        final Game game = BowlingGame.newGameWithOptions(BowlingGameOptions.builder()
-                .numberOfFrames(1)
-                .build());
-        final Player playerOne = new Player("Player One");
-        final Player playerTwo = new Player("Player Two");
-
-        game.newRoll(playerOne, getRoll(10));
-        game.newRoll(playerOne, getRoll(0));
-        game.newRoll(playerOne, getRoll(3));
-
-        game.newRoll(playerTwo, getRoll(3));
-        game.newRoll(playerTwo, getRoll(2));
-
-        Assertions.assertEquals(13, game.getPlayerTotalScore(playerOne));
-        Assertions.assertEquals(5, game.getPlayerTotalScore(playerTwo));
-    }
-
-    @Test
     void twoPlayersWithoutOrderGameTest() {
         final Game game = BowlingGame.newGameWithOptions(BowlingGameOptions.builder()
                 .checkPlayersOrder(false)
@@ -65,6 +46,32 @@ class GameTest {
         game.newRoll(player, getRoll(10));
 
         Assertions.assertEquals(60, game.getPlayerTotalScore(player));
+    }
+
+    @Test
+    void twoPlayersGameTest() {
+        final Game game = BowlingGame.newGameWithOptions(BowlingGameOptions.builder()
+                .numberOfFrames(2)
+                .build());
+        final Player playerOne = new Player("Player One");
+        final Player playerTwo = new Player("Player Two");
+
+        game.newRoll(playerOne, getRoll(10));
+
+        game.newRoll(playerTwo, getRoll(0));
+        game.newRoll(playerTwo, getRoll(0));
+
+        game.newRoll(playerOne, Roll.builder().foul(true).build());
+        game.newRoll(playerOne, getRoll(10));
+        game.newRoll(playerOne, getRoll(0));
+
+        game.newRoll(playerTwo, getRoll(10));
+        game.newRoll(playerTwo, getRoll(10));
+        game.newRoll(playerTwo, getRoll(10));
+
+        Assertions.assertEquals(30, game.getPlayerTotalScore(playerOne));
+        Assertions.assertEquals(30, game.getPlayerTotalScore(playerTwo));
+        Assertions.assertDoesNotThrow(game::toString);
     }
 
     @Test
