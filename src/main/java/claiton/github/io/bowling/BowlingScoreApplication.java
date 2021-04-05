@@ -3,7 +3,6 @@ package claiton.github.io.bowling;
 
 import claiton.github.io.bowling.infra.ValidationException;
 import claiton.github.io.bowling.model.game.Game;
-import claiton.github.io.bowling.model.game.GameFactory;
 import claiton.github.io.bowling.model.player.Player;
 import claiton.github.io.bowling.model.roll.Roll;
 
@@ -26,7 +25,7 @@ public class BowlingScoreApplication {
 
     static Game loadGameFromFile(final String filePath) {
 
-        final Game game = new GameFactory().newGame();
+        final Game game = Game.newStandardGame();
 
         getLinesStream(filePath).forEach(line -> {
             String[] lineValues = line.split("\t");

@@ -10,6 +10,10 @@ public class Roll {
     private final int score;
     private final boolean foul;
 
+    public Roll(int score) {
+        this(score, false);
+    }
+
     @Builder
     public Roll(final int score, final boolean foul) {
         if (score < 0 || score > 10) {

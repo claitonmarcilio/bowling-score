@@ -1,9 +1,7 @@
 package claiton.github.io.bowling.model.game.score.frame;
 
 import claiton.github.io.bowling.infra.ValidationException;
-import claiton.github.io.bowling.model.game.Game;
 import claiton.github.io.bowling.model.game.score.frame.roll.result.evaluator.DefaultFrameRollResultEvaluator;
-import claiton.github.io.bowling.model.player.Player;
 import claiton.github.io.bowling.model.roll.Roll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
