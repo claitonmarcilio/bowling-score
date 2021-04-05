@@ -4,10 +4,20 @@ import claiton.github.io.bowling.exception.ValidationException;
 import lombok.Builder;
 import lombok.Getter;
 
+/**
+ * This entity represents a roll.
+ */
 @Getter
 public class Roll {
 
+    /**
+     * Roll score. The value must be between 0 and 10.
+     */
     private final int score;
+
+    /**
+     * Indicates that this rolls is a foul.
+     */
     private final boolean foul;
 
     public Roll(int score) {

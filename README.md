@@ -78,7 +78,7 @@ This project follows Domain Driven Design practices, encapsulating business logi
 The three main entities are Game, Player and Roll. It is possible to represent a game by adding player's rolls as follows:
 
 ```java
-final Game game = Game.newStandardGame();
+final Game game = BowlingGame.newStandardGame();
 
 final Player player = new Player("Player One");
 final Roll roll = new Roll(10);
@@ -90,7 +90,7 @@ System.out.println(game);
 
 It is also possible to customize some game rules:
 ```java
-final Game game = Game.newGameWithOptions(GameOptions.builder()
+final Game game = BowlingGame.newGameWithOptions(GameOptions.builder()
                 .checkPlayersOrder(false)
                 .numberOfFrames(5)
                 .build());

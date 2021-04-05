@@ -13,6 +13,9 @@ import lombok.RequiredArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This entity encapsulates the control of a player score by keeping track of all frames
+ */
 @RequiredArgsConstructor
 public class Score {
 
@@ -22,10 +25,16 @@ public class Score {
     private final ResultFormatter<Score> resultFormatter = new ScoreResultFormatter();
     private Frame currentFrame;
 
+    /**
+     * Insert a new roll on players score.
+     *
+     * @param roll Roll to be inserted
+     * @return the result of roll evaluation
+     */
     public RollResult newRoll(final Roll roll) {
         preparePlayerFrame();
         final RollResult rollResult = currentFrame.newRoll(roll);
-        applyExtraScore(rollResult);
+        applyExtraScore(roll);
         return rollResult;
     }
 
@@ -35,10 +44,10 @@ public class Score {
                 .sum();
     }
 
-    private void applyExtraScore(final RollResult rollResult) {
+    private void applyExtraScore(final Roll roll) {
         frames.stream()
                 .filter(frame -> frame != currentFrame && frame.isWaitingExtraScore())
-                .forEach(frame -> frame.addExtraScore(rollResult.getScore()));
+                .forEach(frame -> frame.addExtraScore(roll.getScore()));
     }
 
     private void preparePlayerFrame() {

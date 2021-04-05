@@ -3,6 +3,9 @@ package claiton.github.io.bowling.model.game.score;
 import claiton.github.io.bowling.formatter.ResultFormatter;
 import claiton.github.io.bowling.model.game.score.frame.Frame;
 
+/**
+ * Formatter for score result.
+ */
 public class ScoreResultFormatter implements ResultFormatter<Score> {
     private StringBuilder pinfallsStringBuilder;
     private StringBuilder scoreStringBuilder;

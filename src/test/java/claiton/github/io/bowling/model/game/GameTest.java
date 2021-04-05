@@ -10,7 +10,7 @@ class GameTest {
 
     @Test
     void twoPlayersGameTest() {
-        final Game game = Game.newGameWithOptions(GameOptions.builder()
+        final Game game = BowlingGame.newGameWithOptions(BowlingGameOptions.builder()
                 .numberOfFrames(1)
                 .build());
         final Player playerOne = new Player("Player One");
@@ -29,7 +29,7 @@ class GameTest {
 
     @Test
     void twoPlayersWithoutOrderGameTest() {
-        final Game game = Game.newGameWithOptions(GameOptions.builder()
+        final Game game = BowlingGame.newGameWithOptions(BowlingGameOptions.builder()
                 .checkPlayersOrder(false)
                 .build());
         final Player playerOne = new Player("Player One");
@@ -42,7 +42,7 @@ class GameTest {
 
     @Test
     void singleFrameGameTest() {
-        final Game game = Game.newGameWithOptions(GameOptions.builder()
+        final Game game = BowlingGame.newGameWithOptions(BowlingGameOptions.builder()
                 .numberOfFrames(1)
                 .build());
         final Player player = new Player("Player One");
@@ -55,7 +55,7 @@ class GameTest {
 
     @Test
     void perfectGameTest() {
-        final Game game = Game.newGameWithOptions(GameOptions.builder()
+        final Game game = BowlingGame.newGameWithOptions(BowlingGameOptions.builder()
                 .numberOfFrames(2)
                 .build());
         final Player player = new Player("Player One");
@@ -69,7 +69,7 @@ class GameTest {
 
     @Test
     void foulRollTest() {
-        final Game game = Game.newStandardGame();
+        final Game game = BowlingGame.newStandardGame();
         final Player player = new Player("Player One");
         game.newRoll(player, Roll.builder().foul(true).build());
 
@@ -81,7 +81,7 @@ class GameTest {
         final Player firstPlayer = new Player("Player One");
         final Player secondPlayer = new Player("Player Two");
         final Roll roll = new Roll(8);
-        final Game game = Game.newStandardGame();
+        final Game game = BowlingGame.newStandardGame();
         game.newRoll(firstPlayer, roll);
         Assertions.assertThrows(ValidationException.class,
                 () -> game.newRoll(secondPlayer, roll));

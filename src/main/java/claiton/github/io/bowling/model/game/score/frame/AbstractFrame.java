@@ -1,7 +1,7 @@
 package claiton.github.io.bowling.model.game.score.frame;
 
-import claiton.github.io.bowling.formatter.ResultFormatter;
 import claiton.github.io.bowling.exception.ValidationException;
+import claiton.github.io.bowling.formatter.ResultFormatter;
 import claiton.github.io.bowling.model.game.score.frame.roll.FrameRoll;
 import claiton.github.io.bowling.model.game.score.frame.roll.result.evaluator.FrameRollResultEvaluator;
 import claiton.github.io.bowling.model.game.score.frame.roll.result.processor.FrameRollProcessor;
@@ -39,7 +39,7 @@ abstract class AbstractFrame implements Frame, ResultFormatter<Frame> {
 
         updateTotalScore(roll.getScore());
         updateStatus();
-        return new RollResult(roll.getScore(), isFinished());
+        return new RollResult(isFinished());
     }
 
     abstract boolean hasNextRoll();
